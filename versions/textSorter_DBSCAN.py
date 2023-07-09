@@ -76,14 +76,24 @@ def sort_text(input_text):
     # Filter similarity matrix
     similarity_matrix = np.clip(similarity_matrix, None, 40)
 
-    # Set the epsilon for DBSCAN based on the quantity of lines
-    eps = 25 * len(preprocessed_lines) ** (1/4)
-    #print(f"eps={eps}") 
+    while True:
+        # Prompt the user for the epsilon (eps) value
+        eps_input = input("Enter the epsilon (eps) value (or 'q' to quit). This will determine the number of clusters (higher means fewer clusters): ")
+        if eps_input == 'q':
+            break
 
-    # Perform clustering
-    dbscan = DBSCAN(eps=eps, min_samples=1)
-    cluster_labels = dbscan.fit_predict(similarity_matrix)
-    num_clusters = len(set(cluster_labels)) - (1 if -1 in cluster_labels else 0)
+        eps = float(eps_input)
+
+        # Perform clustering
+        dbscan = DBSCAN(eps=eps, min_samples=1)
+        cluster_labels = dbscan.fit_predict(similarity_matrix)
+        num_clusters = len(set(cluster_labels)) - (1 if -1 in cluster_labels else 0)
+        print(f"Number of Clusters: {num_clusters}")
+        
+        user_choice = input("Does that seem right? If not then you will be prompted for a new eps value. (y/n)")
+        
+        if user_choice.lower() in ['y', 'yes']:
+            break
 
     # Sort the cluster labels
     sorted_indices = np.argsort(cluster_labels)

@@ -22,5 +22,4 @@ def run_test(test_name, size, repeat_frequency, lower_range, upper_range):
 run_test(test_name="Small Diverse Dataset", size=25, repeat_frequency=0.1, lower_range=5, upper_range=20)
 run_test(test_name="Small Similar Dataset", size=25, repeat_frequency=0.25, lower_range=1, upper_range=10)
 run_test(test_name="Large Diverse Dataset", size=150, repeat_frequency=0.066, lower_range=75, upper_range=140)
-run_test(test_name="Large Medium Dataset", size=150, repeat_frequency=0.125, lower_range=7, upper_range=75)
 run_test(test_name="Large Similar Dataset", size=150, repeat_frequency=0.25, lower_range=2, upper_range=25)

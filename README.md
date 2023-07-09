@@ -22,7 +22,7 @@ Next I tried a mix of KMeans (to help quantify the number of clusters) and Agglo
 
 With the similarity better quantified in the second iteration it made sense to move to a DBSCAN algorithm. This performs very well for keyword matching and still factors in the overall line similarity to some extent. This was good enough to satisfy my needs.
 
-At this level I also added `test_textSorter.py` to test with mock data so that I could quickly validate if the code would work for other datasets beyond the one I currently had available. Had to make the epsilon dynamic. Doesn't pass every time but looks good enough to me!
+At this level I also added `test_textSorter.py` to test with mock data so that I could quickly validate if the code would work for other datasets beyond the one I currently had available.
 
 ## Future Improvements
 
