@@ -1,0 +1,8 @@
+# list files
+/lists
+*.txt
+
+# cache files
+/__pycache__
+/tests/__pycache__
+/versions/__pycache__
