@@ -1,7 +1,7 @@
 import random
 import string
 
-def generate_mock_dataset(size, similarity_level):
+def generate_mock_dataset(size, repeat_frequency):
     lines = []
     for _ in range(size):
         line = generate_random_line()
@@ -13,7 +13,7 @@ def generate_mock_dataset(size, similarity_level):
             words_i = lines[i].split()
             words_j = lines[j].split()
             for k in range(min(len(words_i), len(words_j))):
-                if random.random() < similarity_level:
+                if random.random() < repeat_frequency:
                     words_j[k] = words_i[k]
 
             lines[j] = ' '.join(words_j)
